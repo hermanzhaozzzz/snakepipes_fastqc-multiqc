@@ -19,3 +19,31 @@ rule fastqc:
         srun -T 24 -c 24         /home/zhaohuanan/zhaohn_HD/1.apps/anaconda3/envs/py37/bin/fastqc -o ../qc/fastqc -t 24         ../reads/BE3-1_combined_R1.fastq.gz ../reads/BE3-2_combined_R1.fastq.gz ../reads/BE4-1_combined_R1.fastq.gz ../reads/BE4-2_combined_R1.fastq.gz ../reads/EM-1_combined_R1.fastq.gz ../reads/EM-2_combined_R1.fastq.gz ../reads/BE3-1_combined_R2.fastq.gz ../reads/BE3-2_combined_R2.fastq.gz ../reads/BE4-1_combined_R2.fastq.gz ../reads/BE4-2_combined_R2.fastq.gz ../reads/EM-1_combined_R2.fastq.gz ../reads/EM-2_combined_R2.fastq.gz 2>../qc/fastqc.log
         
 Submitted job 2 with external jobid '175654'.
+[Tue May  5 00:50:15 2020]
+Finished job 2.
+1 of 3 steps (33%) done
+
+[Tue May  5 00:50:16 2020]
+rule multiqc:
+    input: ../qc/fastqc/BE3-1_combined_R1_fastqc.html, ../qc/fastqc/BE3-2_combined_R1_fastqc.html, ../qc/fastqc/BE4-1_combined_R1_fastqc.html, ../qc/fastqc/BE4-2_combined_R1_fastqc.html, ../qc/fastqc/EM-1_combined_R1_fastqc.html, ../qc/fastqc/EM-2_combined_R1_fastqc.html, ../qc/fastqc/BE3-1_combined_R2_fastqc.html, ../qc/fastqc/BE3-2_combined_R2_fastqc.html, ../qc/fastqc/BE4-1_combined_R2_fastqc.html, ../qc/fastqc/BE4-2_combined_R2_fastqc.html, ../qc/fastqc/EM-1_combined_R2_fastqc.html, ../qc/fastqc/EM-2_combined_R2_fastqc.html
+    output: ../qc/multiqc/multiqc_report.html
+    log: ../qc/multiqc.log
+    jobid: 1
+
+
+        /home/zhaohuanan/zhaohn_HD/1.apps/anaconda3/envs/py37/bin/multiqc ../qc -o ../qc/multiqc --no-data-dir 2>../qc/multiqc.log
+        
+Submitted job 1 with external jobid '175658'.
+[Tue May  5 00:51:57 2020]
+Finished job 1.
+2 of 3 steps (67%) done
+
+[Tue May  5 00:51:58 2020]
+localrule all:
+    input: ../qc/multiqc/multiqc_report.html
+    jobid: 0
+
+[Tue May  5 00:51:58 2020]
+Finished job 0.
+3 of 3 steps (100%) done
+Complete log: /gpfs/user/zhaohuanan/3.project/3.2020-05_BE3andBE4_RNA-seq/snakepipes_fastqc-multiqc/.snakemake/log/2020-05-05T003155.701769.snakemake.log

@@ -24,12 +24,12 @@ MULTIQC = "/home/zhaohuanan/zhaohn_HD/1.apps/anaconda3/envs/py37/bin/multiqc"
 # vars
 # --------------------------------------------------------------->>>>>>>
 SAMPLES = [
-     "BE3-1",
-     "BE3-2",
-     "BE4-1",
-     "BE4-2",
-     "EM-1",
-     "EM-2"
+     "BE3-1_combined",
+     "BE3-2_combined",
+     "BE4-1_combined",
+     "BE4-2_combined",
+     "EM-1_combined",
+     "EM-2_combined"
 ]
 # ------------------------------------------------------------------------------------------>>>>>>>>>>
 # rule all
@@ -44,12 +44,12 @@ rule all:
 
 rule fastqc: 
     input: 
-        expand(["../reads/{sample}_combined_R1.fastq.gz",
-                 "../reads/{sample}_combined_R2.fastq.gz"], sample=SAMPLES)
+        expand(["../reads/{sample}_R1.fastq.gz",
+                 "../reads/{sample}_R2.fastq.gz"], sample=SAMPLES)
     output: 
-        expand(["../qc/fastqc/{sample}_combined_R1_fastqc.html",
-                "../qc/fastqc/{sample}_combined_R2_fastqc.html"], sample=SAMPLES)
-                # the suffix XXX_fastqc.zip is necessary the same with SAMPLES raw name suffix, for multiqc to find the file. 
+        expand(["../qc/fastqc/{sample}_R1_fastqc.html",
+                "../qc/fastqc/{sample}_R2_fastqc.html"], sample=SAMPLES)
+                # the suffix _fastqc.zip is necessary the same with SAMPLES raw name suffix, for multiqc to find the file. 
                 # If not using multiqc, you are free to choose an arbitrary filename
     params: 
         threads = "24"
@@ -66,8 +66,8 @@ rule fastqc:
 # ------------------------------------------------------------------------------------------>>>>>>>>>>
 rule multiqc: 
     input: 
-        expand(["../qc/fastqc/{sample}_combined_R1_fastqc.html",
-                "../qc/fastqc/{sample}_combined_R2_fastqc.html"], sample=SAMPLES)
+        expand(["../qc/fastqc/{sample}_R1_fastqc.html",
+                "../qc/fastqc/{sample}_R2_fastqc.html"], sample=SAMPLES)
                 # the suffix XXX_fastqc.zip is necessary the same with SAMPLES raw name suffix, for multiqc to find the file. 
     output:
         "../qc/multiqc/multiqc_report.html"
