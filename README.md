@@ -14,4 +14,5 @@ Usage:
        - SAMPLES
        - put your fastq.gz files in ../reads
        - fix your input names
+       - snakemake --profile slurm --jobs 6 # for myself
 

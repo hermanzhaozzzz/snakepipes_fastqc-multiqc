@@ -24,8 +24,12 @@ MULTIQC = "/home/zhaohuanan/zhaohn_HD/1.apps/anaconda3/envs/py37/bin/multiqc"
 # vars
 # --------------------------------------------------------------->>>>>>>
 SAMPLES = [
-    "test",
-    "test2"
+     "BE3-1",
+     "BE3-2",
+     "BE4-1",
+     "BE4-2",
+     "EM-1",
+     "EM-2"
 ]
 # ------------------------------------------------------------------------------------------>>>>>>>>>>
 # rule all
@@ -45,12 +49,17 @@ rule fastqc:
     output: 
         expand(["../qc/fastqc/{sample}_combined_R1_fastqc.html",
                 "../qc/fastqc/{sample}_combined_R2_fastqc.html"], sample=SAMPLES)
+                # the suffix XXX_fastqc.zip is necessary the same with SAMPLES raw name suffix, for multiqc to find the file. 
+                # If not using multiqc, you are free to choose an arbitrary filename
     params: 
         threads = "24"
+    log:
+        "../qc/fastqc.log"
     shell:
         """
+        srun -T 24 -c 24 \
         {FASTQC} -o ../qc/fastqc -t {params.threads} \
-        {input}
+        {input} 2>{log}
         """
 # ------------------------------------------------------------------------------------------>>>>>>>>>>
 # rule multiqc
@@ -59,10 +68,13 @@ rule multiqc:
     input: 
         expand(["../qc/fastqc/{sample}_combined_R1_fastqc.html",
                 "../qc/fastqc/{sample}_combined_R2_fastqc.html"], sample=SAMPLES)
+                # the suffix XXX_fastqc.zip is necessary the same with SAMPLES raw name suffix, for multiqc to find the file. 
     output:
         "../qc/multiqc/multiqc_report.html"
+    log:
+        "../qc/multiqc.log"
     shell: 
         """
-        {MULTIQC} ../qc -o ../qc/multiqc --no-data-dir
+        {MULTIQC} ../qc -o ../qc/multiqc --no-data-dir 2>{log}
         """
         

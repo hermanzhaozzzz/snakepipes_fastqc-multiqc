@@ -1,0 +1,13 @@
+../qc/multiqc/multiqc_report.html
+../qc/fastqc/BE3-1_combined_R1_fastqc.html
+../qc/fastqc/BE3-2_combined_R1_fastqc.html
+../qc/fastqc/BE4-1_combined_R1_fastqc.html
+../qc/fastqc/BE4-2_combined_R1_fastqc.html
+../qc/fastqc/EM-1_combined_R1_fastqc.html
+../qc/fastqc/EM-2_combined_R1_fastqc.html
+../qc/fastqc/BE3-1_combined_R2_fastqc.html
+../qc/fastqc/BE3-2_combined_R2_fastqc.html
+../qc/fastqc/BE4-1_combined_R2_fastqc.html
+../qc/fastqc/BE4-2_combined_R2_fastqc.html
+../qc/fastqc/EM-1_combined_R2_fastqc.html
+../qc/fastqc/EM-2_combined_R2_fastqc.html
