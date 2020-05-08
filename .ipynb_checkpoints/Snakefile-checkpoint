@@ -16,20 +16,24 @@
 # --------------------------------------------------------------->>>>>>>
 # software
 # --------------------------------------------------------------->>>>>>>
+
 # conda install -c bioconda fastqc=0.11.8
 FASTQC = "/home/zhaohuanan/zhaohn_HD/1.apps/anaconda3/envs/py37/bin/fastqc"
+
 # conda install -c bioconda multiqc=1.7
 MULTIQC = "/home/zhaohuanan/zhaohn_HD/1.apps/anaconda3/envs/py37/bin/multiqc"
+
+
+
+
+
 # --------------------------------------------------------------->>>>>>>
 # vars
 # --------------------------------------------------------------->>>>>>>
 SAMPLES = [
-     "BE3-1_combined",
-     "BE3-2_combined",
-     "BE4-1_combined",
-     "BE4-2_combined",
-     "EM-1_combined",
-     "EM-2_combined"
+    "BE3-P2A-1",
+    "BE3-P2A-2",
+    "BE3-P2A-3"
 ]
 # ------------------------------------------------------------------------------------------>>>>>>>>>>
 # rule all
@@ -57,7 +61,6 @@ rule fastqc:
         "../qc/fastqc.log"
     shell:
         """
-        srun -T 24 -c 24 \
         {FASTQC} -o ../qc/fastqc -t {params.threads} \
         {input} 2>{log}
         """
