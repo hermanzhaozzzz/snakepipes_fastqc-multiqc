@@ -9,7 +9,8 @@ Env:
    * conda install -c bioconda multiqc=1.7
 ---
 Usage:
-   1. git@github.com:hermanzhaozzzz/snakepipes_fastqc-multiqc.git
+   1. git clone git@github.com:hermanzhaozzzz/snakepipes_fastqc-multiqc.git
+   2. set the conda env -- py37 well
    2. cd snakepipes_fastqc-multiqc
    3. edit Snakefile
        - software
