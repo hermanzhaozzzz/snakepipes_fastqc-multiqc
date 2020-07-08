@@ -6,7 +6,6 @@
 # fastqc + multiqc pipeline
 ######################################################################## 
 # run on abyss
-# /gpfs/user/zhaohuanan/3.project/3.2020-05_BE3andBE4_RNA-seq
 
 # --------------------------------------------------------------->>>>>>>
 # pipeline
@@ -18,10 +17,10 @@
 # --------------------------------------------------------------->>>>>>>
 
 # conda install -c bioconda fastqc=0.11.8
-FASTQC = "/home/zhaohuanan/anaconda3/envs/py37/bin/fastqc"
+FASTQC = "~/anaconda3/envs/snakepipes_fastqc-multiqc/bin/fastqc"
 
 # conda install -c bioconda multiqc=1.7
-MULTIQC = "/home/zhaohuanan/anaconda3/envs/py37/bin/multiqc"
+MULTIQC = "~/anaconda3/envs/snakepipes_fastqc-multiqc/bin/multiqc"
 
 
 
