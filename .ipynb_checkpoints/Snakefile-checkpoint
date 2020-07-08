@@ -18,10 +18,10 @@
 # --------------------------------------------------------------->>>>>>>
 
 # conda install -c bioconda fastqc=0.11.8
-FASTQC = "/home/zhaohuanan/zhaohn_HD/1.apps/anaconda3/envs/py37/bin/fastqc"
+FASTQC = "/home/zhaohuanan/anaconda3/envs/py37/bin/fastqc"
 
 # conda install -c bioconda multiqc=1.7
-MULTIQC = "/home/zhaohuanan/zhaohn_HD/1.apps/anaconda3/envs/py37/bin/multiqc"
+MULTIQC = "/home/zhaohuanan/anaconda3/envs/py37/bin/multiqc"
 
 
 
