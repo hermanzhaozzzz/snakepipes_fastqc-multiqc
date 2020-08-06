@@ -61,42 +61,46 @@ SAMPLES = [
  'EH-1',
  'M3-1',
  'M2-1']
+# SAMPLES = ['test']
 # ------------------------------------------------------------------------------------------>>>>>>>>>>
 # rule all
 # ------------------------------------------------------------------------------------------>>>>>>>>>>
 rule all:
+    # 有点特殊，输出和输入文件名只能有R1.fastq.gz和_fastqc.html的区别，前面不能有区别！要改就得全改！
     input:
+        expand("../fastq/TargetSeq-{sample}_R1.fastq.gz",sample=SAMPLES),
+        expand("../fastq/TargetSeq-{sample}_R2.fastq.gz",sample=SAMPLES),
+        expand("../qc/fastqc/TargetSeq-{sample}_R1_fastqc.html", sample=SAMPLES),
+        expand("../qc/fastqc/TargetSeq-{sample}_R2_fastqc.html", sample=SAMPLES),
         "../qc/multiqc/multiqc_report.html"
 # ------------------------------------------------------------------------------------------>>>>>>>>>>
 # rule fastqc
 # ------------------------------------------------------------------------------------------>>>>>>>>>>
-
-
 rule fastqc: 
     input: 
-        expand(["../fastq/TargetSeq-{sample}_R1.fastq.gz",
-                 "../fastq/TargetSeq-{sample}_R2.fastq.gz"], sample=SAMPLES)
+        "../fastq/TargetSeq-{sample}_R1.fastq.gz",
+        "../fastq/TargetSeq-{sample}_R2.fastq.gz"
     output: 
-        expand(["../qc/fastqc/293T-RNASeq-{sample}_R1_fastqc.html",
-                "../qc/fastqc/293T-RNASeq-{sample}_R2_fastqc.html"], sample=SAMPLES)
+        "../qc/fastqc/TargetSeq-{sample}_R1_fastqc.html",
+        "../qc/fastqc/TargetSeq-{sample}_R2_fastqc.html"
                 # the suffix _fastqc.zip is necessary the same with SAMPLES raw name suffix, for multiqc to find the file. 
                 # If not using multiqc, you are free to choose an arbitrary filename
     params: 
         threads = "24"
     log:
-        "../qc/fastqc.log"
+        "../qc/fastqc_{sample}.log"
     shell:
         """
         {FASTQC} -o ../qc/fastqc -t {params.threads} \
-        {input} 2>{log}
+        {input[0]} {input[1]} 2>{log}
         """
 # ------------------------------------------------------------------------------------------>>>>>>>>>>
 # rule multiqc
 # ------------------------------------------------------------------------------------------>>>>>>>>>>
 rule multiqc: 
     input: 
-        expand(["../qc/fastqc/293T-RNASeq-{sample}_R1_fastqc.html",
-                "../qc/fastqc/293T-RNASeq-{sample}_R2_fastqc.html"], sample=SAMPLES)
+        expand(["../qc/fastqc/TargetSeq-{sample}_R1_fastqc.html",
+                "../qc/fastqc/TargetSeq-{sample}_R2_fastqc.html"], sample=SAMPLES)
                 # the suffix XXX_fastqc.zip is necessary the same with SAMPLES raw name suffix, for multiqc to find the file. 
     output:
         "../qc/multiqc/multiqc_report.html"
@@ -106,4 +110,3 @@ rule multiqc:
         """
         {MULTIQC} ../qc -o ../qc/multiqc --no-data-dir 2>{log}
         """
-        
