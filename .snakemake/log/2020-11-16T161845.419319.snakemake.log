@@ -1,0 +1,4 @@
+Building DAG of jobs...
+WildcardError in line 78 of /gpfs/user/zhaohuanan/3.project/22.2020-11_1112_JSK_DigenomeSeq_WGS/snakepipes_fastqc-multiqc/Snakefile.py:
+Wildcards in input files cannot be determined from output files:
+'sample'

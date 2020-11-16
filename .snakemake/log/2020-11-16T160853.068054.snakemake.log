@@ -1,0 +1,3 @@
+SyntaxError:
+Not all output, log and benchmark files of rule fastqc contain the same wildcards. This is crucial though, in order to avoid that two or more jobs write to the same file.
+  File "/gpfs/user/zhaohuanan/3.project/22.2020-11_1112_JSK_DigenomeSeq_WGS/snakepipes_fastqc-multiqc/Snakefile.py", line 75, in <module>
