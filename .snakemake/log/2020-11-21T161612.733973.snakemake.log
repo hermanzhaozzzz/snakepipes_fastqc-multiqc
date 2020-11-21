@@ -1,0 +1,5 @@
+Building DAG of jobs...
+MissingInputException in line 59 of /gpfs/user/zhaohuanan/3.project/19.2020-11_1104_TargetSeq-DdCBE_LL_ABE-RNF2_CBE-EXM1/sub-6_CBE-EMX1/snakepipes_fastqc-multiqc/Snakefile.py:
+Missing input files for rule fastqc:
+../fastq/TargetSeq-CBE-EMX2-rep1_R2.fastq.gz
+../fastq/TargetSeq-CBE-EMX2-rep1_R1.fastq.gz

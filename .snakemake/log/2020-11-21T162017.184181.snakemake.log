@@ -1,0 +1,25 @@
+Building DAG of jobs...
+Job counts:
+	count	jobs
+	1	all
+	2	fastqc
+	1	multiqc
+	4
+
+[Sat Nov 21 16:20:17 2020]
+rule fastqc:
+    input: ../fastq/TargetSeq-CBE-EMX2-rep2_R1.fastq.gz, ../fastq/TargetSeq-CBE-EMX2-rep2_R2.fastq.gz
+    output: ../qc/fastqc/TargetSeq-CBE-EMX2-rep2_R1_fastqc.html, ../qc/fastqc/TargetSeq-CBE-EMX2-rep2_R2_fastqc.html
+    log: ../qc/fastqc_TargetSeq-CBE-EMX2-rep2.log
+    jobid: 2
+    reason: Missing output files: ../qc/fastqc/TargetSeq-CBE-EMX2-rep2_R1_fastqc.html, ../qc/fastqc/TargetSeq-CBE-EMX2-rep2_R2_fastqc.html
+    wildcards: sample=TargetSeq-CBE-EMX2-rep2
+
+WildcardError in line 59 of /gpfs/user/zhaohuanan/3.project/19.2020-11_1104_TargetSeq-DdCBE_LL_ABE-RNF2_CBE-EXM1/sub-6_CBE-EMX1/snakepipes_fastqc-multiqc/Snakefile.py:
+Wildcards in params cannot be determined from output files. Note that you have to use a function to deactivate automatic wildcard expansion in params strings, e.g., `lambda wildcards: '{test}'`. Also see https://snakemake.readthedocs.io/en/stable/snakefiles/rules.html#non-file-parameters-for-rules:
+'THREADS'
+  File "/home/zhaohuanan/zhaohn_HD/miniconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 131, in run_jobs
+  File "/home/zhaohuanan/zhaohn_HD/miniconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 140, in run
+  File "/home/zhaohuanan/zhaohn_HD/miniconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 151, in _run
+  File "/home/zhaohuanan/zhaohn_HD/miniconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 171, in printjob
+  File "/home/zhaohuanan/zhaohn_HD/miniconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 157, in printjob

@@ -1,0 +1,140 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 4
+Job counts:
+	count	jobs
+	1	all
+	2	fastqc
+	1	multiqc
+	4
+
+[Sat Nov 21 16:21:12 2020]
+rule fastqc:
+    input: ../fastq/TargetSeq-CBE-EMX2-rep2_R1.fastq.gz, ../fastq/TargetSeq-CBE-EMX2-rep2_R2.fastq.gz
+    output: ../qc/fastqc/TargetSeq-CBE-EMX2-rep2_R1_fastqc.html, ../qc/fastqc/TargetSeq-CBE-EMX2-rep2_R2_fastqc.html
+    log: ../qc/fastqc_TargetSeq-CBE-EMX2-rep2.log
+    jobid: 2
+    reason: Missing output files: ../qc/fastqc/TargetSeq-CBE-EMX2-rep2_R1_fastqc.html, ../qc/fastqc/TargetSeq-CBE-EMX2-rep2_R2_fastqc.html
+    wildcards: sample=TargetSeq-CBE-EMX2-rep2
+
+
+        /home/zhaohuanan/zhaohn_HD/miniconda3/bin/fastqc -o ../qc/fastqc -t 24         ../fastq/TargetSeq-CBE-EMX2-rep2_R1.fastq.gz ../fastq/TargetSeq-CBE-EMX2-rep2_R2.fastq.gz 2>../qc/fastqc_TargetSeq-CBE-EMX2-rep2.log
+        
+Submitted job 2 with external jobid '191675'.
+
+[Sat Nov 21 16:21:13 2020]
+rule fastqc:
+    input: ../fastq/TargetSeq-CBE-EMX1-rep1_R1.fastq.gz, ../fastq/TargetSeq-CBE-EMX1-rep1_R2.fastq.gz
+    output: ../qc/fastqc/TargetSeq-CBE-EMX1-rep1_R1_fastqc.html, ../qc/fastqc/TargetSeq-CBE-EMX1-rep1_R2_fastqc.html
+    log: ../qc/fastqc_TargetSeq-CBE-EMX1-rep1.log
+    jobid: 1
+    reason: Missing output files: ../qc/fastqc/TargetSeq-CBE-EMX1-rep1_R2_fastqc.html, ../qc/fastqc/TargetSeq-CBE-EMX1-rep1_R1_fastqc.html
+    wildcards: sample=TargetSeq-CBE-EMX1-rep1
+
+
+        /home/zhaohuanan/zhaohn_HD/miniconda3/bin/fastqc -o ../qc/fastqc -t 24         ../fastq/TargetSeq-CBE-EMX1-rep1_R1.fastq.gz ../fastq/TargetSeq-CBE-EMX1-rep1_R2.fastq.gz 2>../qc/fastqc_TargetSeq-CBE-EMX1-rep1.log
+        
+Submitted job 1 with external jobid '191676'.
+[Sat Nov 21 16:21:22 2020]
+Error in rule fastqc:
+    jobid: 1
+    output: ../qc/fastqc/TargetSeq-CBE-EMX1-rep1_R1_fastqc.html, ../qc/fastqc/TargetSeq-CBE-EMX1-rep1_R2_fastqc.html
+    log: ../qc/fastqc_TargetSeq-CBE-EMX1-rep1.log (check log file(s) for error message)
+    shell:
+        
+        /home/zhaohuanan/zhaohn_HD/miniconda3/bin/fastqc -o ../qc/fastqc -t 24         ../fastq/TargetSeq-CBE-EMX1-rep1_R1.fastq.gz ../fastq/TargetSeq-CBE-EMX1-rep1_R2.fastq.gz 2>../qc/fastqc_TargetSeq-CBE-EMX1-rep1.log
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+    cluster_jobid: 191676
+
+Error executing rule fastqc on cluster (jobid: 1, external: 191676, jobscript: /gpfs/user/zhaohuanan/3.project/19.2020-11_1104_TargetSeq-DdCBE_LL_ABE-RNF2_CBE-EXM1/sub-6_CBE-EMX1/snakepipes_fastqc-multiqc/.snakemake/tmp.crriy1i8/snakejob.fastqc.1.sh). For error details see the cluster log and the log files of the involved rule(s).
+Trying to restart job 1.
+
+[Sat Nov 21 16:21:22 2020]
+rule fastqc:
+    input: ../fastq/TargetSeq-CBE-EMX1-rep1_R1.fastq.gz, ../fastq/TargetSeq-CBE-EMX1-rep1_R2.fastq.gz
+    output: ../qc/fastqc/TargetSeq-CBE-EMX1-rep1_R1_fastqc.html, ../qc/fastqc/TargetSeq-CBE-EMX1-rep1_R2_fastqc.html
+    log: ../qc/fastqc_TargetSeq-CBE-EMX1-rep1.log
+    jobid: 1
+    reason: Missing output files: ../qc/fastqc/TargetSeq-CBE-EMX1-rep1_R2_fastqc.html, ../qc/fastqc/TargetSeq-CBE-EMX1-rep1_R1_fastqc.html
+    wildcards: sample=TargetSeq-CBE-EMX1-rep1
+
+
+        /home/zhaohuanan/zhaohn_HD/miniconda3/bin/fastqc -o ../qc/fastqc -t 24         ../fastq/TargetSeq-CBE-EMX1-rep1_R1.fastq.gz ../fastq/TargetSeq-CBE-EMX1-rep1_R2.fastq.gz 2>../qc/fastqc_TargetSeq-CBE-EMX1-rep1.log
+        
+Submitted job 1 with external jobid '191677'.
+[Sat Nov 21 16:21:33 2020]
+Error in rule fastqc:
+    jobid: 1
+    output: ../qc/fastqc/TargetSeq-CBE-EMX1-rep1_R1_fastqc.html, ../qc/fastqc/TargetSeq-CBE-EMX1-rep1_R2_fastqc.html
+    log: ../qc/fastqc_TargetSeq-CBE-EMX1-rep1.log (check log file(s) for error message)
+    shell:
+        
+        /home/zhaohuanan/zhaohn_HD/miniconda3/bin/fastqc -o ../qc/fastqc -t 24         ../fastq/TargetSeq-CBE-EMX1-rep1_R1.fastq.gz ../fastq/TargetSeq-CBE-EMX1-rep1_R2.fastq.gz 2>../qc/fastqc_TargetSeq-CBE-EMX1-rep1.log
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+    cluster_jobid: 191677
+
+Error executing rule fastqc on cluster (jobid: 1, external: 191677, jobscript: /gpfs/user/zhaohuanan/3.project/19.2020-11_1104_TargetSeq-DdCBE_LL_ABE-RNF2_CBE-EXM1/sub-6_CBE-EMX1/snakepipes_fastqc-multiqc/.snakemake/tmp.crriy1i8/snakejob.fastqc.1.sh). For error details see the cluster log and the log files of the involved rule(s).
+Trying to restart job 1.
+
+[Sat Nov 21 16:21:33 2020]
+rule fastqc:
+    input: ../fastq/TargetSeq-CBE-EMX1-rep1_R1.fastq.gz, ../fastq/TargetSeq-CBE-EMX1-rep1_R2.fastq.gz
+    output: ../qc/fastqc/TargetSeq-CBE-EMX1-rep1_R1_fastqc.html, ../qc/fastqc/TargetSeq-CBE-EMX1-rep1_R2_fastqc.html
+    log: ../qc/fastqc_TargetSeq-CBE-EMX1-rep1.log
+    jobid: 1
+    reason: Missing output files: ../qc/fastqc/TargetSeq-CBE-EMX1-rep1_R2_fastqc.html, ../qc/fastqc/TargetSeq-CBE-EMX1-rep1_R1_fastqc.html
+    wildcards: sample=TargetSeq-CBE-EMX1-rep1
+
+
+        /home/zhaohuanan/zhaohn_HD/miniconda3/bin/fastqc -o ../qc/fastqc -t 24         ../fastq/TargetSeq-CBE-EMX1-rep1_R1.fastq.gz ../fastq/TargetSeq-CBE-EMX1-rep1_R2.fastq.gz 2>../qc/fastqc_TargetSeq-CBE-EMX1-rep1.log
+        
+Submitted job 1 with external jobid '191678'.
+[Sat Nov 21 16:21:43 2020]
+Error in rule fastqc:
+    jobid: 1
+    output: ../qc/fastqc/TargetSeq-CBE-EMX1-rep1_R1_fastqc.html, ../qc/fastqc/TargetSeq-CBE-EMX1-rep1_R2_fastqc.html
+    log: ../qc/fastqc_TargetSeq-CBE-EMX1-rep1.log (check log file(s) for error message)
+    shell:
+        
+        /home/zhaohuanan/zhaohn_HD/miniconda3/bin/fastqc -o ../qc/fastqc -t 24         ../fastq/TargetSeq-CBE-EMX1-rep1_R1.fastq.gz ../fastq/TargetSeq-CBE-EMX1-rep1_R2.fastq.gz 2>../qc/fastqc_TargetSeq-CBE-EMX1-rep1.log
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+    cluster_jobid: 191678
+
+Error executing rule fastqc on cluster (jobid: 1, external: 191678, jobscript: /gpfs/user/zhaohuanan/3.project/19.2020-11_1104_TargetSeq-DdCBE_LL_ABE-RNF2_CBE-EXM1/sub-6_CBE-EMX1/snakepipes_fastqc-multiqc/.snakemake/tmp.crriy1i8/snakejob.fastqc.1.sh). For error details see the cluster log and the log files of the involved rule(s).
+Trying to restart job 1.
+
+[Sat Nov 21 16:21:43 2020]
+rule fastqc:
+    input: ../fastq/TargetSeq-CBE-EMX1-rep1_R1.fastq.gz, ../fastq/TargetSeq-CBE-EMX1-rep1_R2.fastq.gz
+    output: ../qc/fastqc/TargetSeq-CBE-EMX1-rep1_R1_fastqc.html, ../qc/fastqc/TargetSeq-CBE-EMX1-rep1_R2_fastqc.html
+    log: ../qc/fastqc_TargetSeq-CBE-EMX1-rep1.log
+    jobid: 1
+    reason: Missing output files: ../qc/fastqc/TargetSeq-CBE-EMX1-rep1_R2_fastqc.html, ../qc/fastqc/TargetSeq-CBE-EMX1-rep1_R1_fastqc.html
+    wildcards: sample=TargetSeq-CBE-EMX1-rep1
+
+
+        /home/zhaohuanan/zhaohn_HD/miniconda3/bin/fastqc -o ../qc/fastqc -t 24         ../fastq/TargetSeq-CBE-EMX1-rep1_R1.fastq.gz ../fastq/TargetSeq-CBE-EMX1-rep1_R2.fastq.gz 2>../qc/fastqc_TargetSeq-CBE-EMX1-rep1.log
+        
+Submitted job 1 with external jobid '191679'.
+[Sat Nov 21 16:21:54 2020]
+Error in rule fastqc:
+    jobid: 1
+    output: ../qc/fastqc/TargetSeq-CBE-EMX1-rep1_R1_fastqc.html, ../qc/fastqc/TargetSeq-CBE-EMX1-rep1_R2_fastqc.html
+    log: ../qc/fastqc_TargetSeq-CBE-EMX1-rep1.log (check log file(s) for error message)
+    shell:
+        
+        /home/zhaohuanan/zhaohn_HD/miniconda3/bin/fastqc -o ../qc/fastqc -t 24         ../fastq/TargetSeq-CBE-EMX1-rep1_R1.fastq.gz ../fastq/TargetSeq-CBE-EMX1-rep1_R2.fastq.gz 2>../qc/fastqc_TargetSeq-CBE-EMX1-rep1.log
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+    cluster_jobid: 191679
+
+Error executing rule fastqc on cluster (jobid: 1, external: 191679, jobscript: /gpfs/user/zhaohuanan/3.project/19.2020-11_1104_TargetSeq-DdCBE_LL_ABE-RNF2_CBE-EXM1/sub-6_CBE-EMX1/snakepipes_fastqc-multiqc/.snakemake/tmp.crriy1i8/snakejob.fastqc.1.sh). For error details see the cluster log and the log files of the involved rule(s).
+[Sat Nov 21 16:29:53 2020]
+Finished job 2.
+1 of 4 steps (25%) done
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /gpfs/user/zhaohuanan/3.project/19.2020-11_1104_TargetSeq-DdCBE_LL_ABE-RNF2_CBE-EXM1/sub-6_CBE-EMX1/snakepipes_fastqc-multiqc/.snakemake/log/2020-11-21T162112.420424.snakemake.log
