@@ -26,9 +26,9 @@ conda create -n snakepipes_fastqc-multiqc fastqc multiqc
 cd snakepipes_fastqc-multiqc
 
 # test
-snakemake -pr -j 24 -s Snakefile -n
+snakemake -pr -j 24 -s Snakefile.py -n
 # run
-snakemake -pr -j 24 -s Snakefile
+snakemake -pr -j 24 -s Snakefile.py
 ```
 
 
