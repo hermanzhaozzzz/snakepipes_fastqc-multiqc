@@ -60,12 +60,14 @@ rule fastqc:
     output: 
         directory("../qc/fastqc/{sample}")
     params: 
-        threads = "24",
+        threads = "24"
+    log:
+        "../fastq/{sample}.log
     shell:
         """
         mkdir -p {output}
         {FASTQC} -o {output} -t {params.threads} \
-        {input[0]} {input[1]} 2>&1
+        {input[0]} {input[1]} > {log} 2>&1
         """
 # ------------------------------------------------------------------------------------------>>>>>>>>>>
 # rule multiqc
@@ -75,7 +77,9 @@ rule multiqc:
         expand("../qc/fastqc/{sample}",sample=SAMPLES)
     output:
         "../qc/multiqc/multiqc_report.html"
+    log:
+        "../qc/multiqc/multiqc_report.log""
     shell: 
         """
-        {MULTIQC} ../qc/fastqc -o ../qc/multiqc --no-data-dir 2>&1
+        {MULTIQC} ../qc/fastqc -o ../qc/multiqc --no-data-dir > {log} 2>&1
         """

@@ -2,6 +2,8 @@
 Author: Herman Zhao
 Email: hermanzhaozzzz@gmail.com
 ---
+
+
 # snakepipes_fastqc-multiqc
 ## Introduction:
 This snakemake pipeline aims to do fastqc and multiqc for many fastq.gz files in a same folder
@@ -33,5 +35,6 @@ snakemake -pr -j 24 -s Snakefile
 
 ## Update logs:
 - 2020-11-24: 
-    - update to a normal format and remove log files
+    - update to a normal format and add log files
     - auto set PATH for fastqc and multiqc(use os.popen(which app).read() to return a path for apps)
+    
