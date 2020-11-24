@@ -2,23 +2,30 @@
 Author: Herman Zhao
 Email: hermanzhaozzzz@gmail.com
 ---
-Env:
+# snakepipes_fastqc-multiqc
+## Introduction:
+This snakemake pipeline aims to do fastqc and multiqc for many fastq.gz files in a same folder
+## Env:
 ```
-conda create -n snakepipes_fastqc-multiqc python=3.7 fastqc=0.11.8 multiqc=1.7 
+conda install snakemake
+conda create -n snakepipes_fastqc-multiqc fastqc multiqc 
 ```
 ---
-Usage:
+## Usage:
 1. prepare the file and env.
 ```
 git clone git@github.com:hermanzhaozzzz/snakepipes_fastqc-multiqc.git
-conda create -n snakepipes_fastqc-multiqc python=3.7 fastqc=0.11.8 multiqc=1.7 
+conda create -n snakepipes_fastqc-multiqc fastqc multiqc
 ```
-2. cd snakepipes_fastqc-multiqc
-3. 
+2. fill the "SAMPLE" list in the Snakefile
+3. Ensure that dependent programs are installed and added into the PATH variable
+3. run
 ```
-# 因为是高IO低计算，所以建议salloc节点上去多并行几个jobs
-snakemake --jobs 32 --cores 24 --snakefile Snakefile -p
-# 或者也可以这样，就是浪费点儿资源
-snakemake --profile slurm --jobs 6 --cores 24 --snakefile Snakefile -p
+cd snakepipes_fastqc-multiqc
+
+# test
+snakemake -pr -j 24 -s Snakefile -n
+# run
+snakemake -pr -j 24 -s Snakefile
 ```
 
