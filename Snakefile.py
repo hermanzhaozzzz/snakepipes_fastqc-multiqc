@@ -15,7 +15,12 @@ import os
 # vars
 # --------------------------------------------------------------->>>>>>>
 SAMPLES = [
-"20201124-293T-DetectSeq_.CBE-V-PD7"
+    'N4-veri-1_combined',
+    'N4-veri-1_combined',
+    'N5-veri-2_combined',
+    'N5-veri-2_combined',
+    'N6-veri-2_combined',
+    'N6-veri-2_combined'
 ]
 
 THREADS = '24'
@@ -59,14 +64,12 @@ rule fastqc:
         "../fastq/{sample}_R2.fastq.gz"
     output: 
         directory("../qc/fastqc/{sample}")
-    params: 
-        threads = "24"
     log:
-        "../fastq/{sample}.log
+        "../fastq/{sample}.log"
     shell:
         """
         mkdir -p {output}
-        {FASTQC} -o {output} -t {params.threads} \
+        {FASTQC} -o {output} -t {THREADS} \
         {input[0]} {input[1]} > {log} 2>&1
         """
 # ------------------------------------------------------------------------------------------>>>>>>>>>>
@@ -78,7 +81,7 @@ rule multiqc:
     output:
         "../qc/multiqc/multiqc_report.html"
     log:
-        "../qc/multiqc/multiqc_report.log""
+        "../qc/multiqc/multiqc_report.log"
     shell: 
         """
         {MULTIQC} ../qc/fastqc -o ../qc/multiqc --no-data-dir > {log} 2>&1
