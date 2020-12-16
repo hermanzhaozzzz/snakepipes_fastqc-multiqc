@@ -15,12 +15,22 @@ import os
 # vars
 # --------------------------------------------------------------->>>>>>>
 SAMPLES = [
-    'N4-veri-1_combined',
-    'N4-veri-1_combined',
-    'N5-veri-2_combined',
-    'N5-veri-2_combined',
-    'N6-veri-2_combined',
-    'N6-veri-2_combined'
+    'N5-1-Ans-1_combined',
+    'N5-1-Ans-1_combined',
+    'N5-1-Ans-2_combined',
+    'N5-1-Ans-2_combined',
+    'N5-1-Tns-1_combined',
+    'N5-1-Tns-1_combined',
+    'N5-1-Tns-2_combined',
+    'N5-1-Tns-2_combined',
+    'N5-1-Uns-1_combined',
+    'N5-1-Uns-1_combined',
+    'N5-1-Uns-2_combined',
+    'N5-1-Uns-2_combined',
+    'N5-1-WT-1_combined',
+    'N5-1-WT-1_combined',
+    'N5-1-WT-2_combined',
+    'N5-1-WT-2_combined'
 ]
 
 THREADS = '24'
