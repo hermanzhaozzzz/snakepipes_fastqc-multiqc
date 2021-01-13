@@ -14,16 +14,7 @@ import os
 # --------------------------------------------------------------->>>>>>>
 # vars
 # --------------------------------------------------------------->>>>>>>
-SAMPLES = [
-    'EMX1-digenome-5-1_combined',
-    'EMX1-digenome-5-1_combined',
-    'EMX1-digenome-5-2_combined',
-    'EMX1-digenome-5-2_combined',
-    'cas9-RUX-25_combined',
-    'cas9-RUX-25_combined',
-    'cpf1-RUX-21_combined',
-    'cpf1-RUX-21_combined'
-]
+SAMPLES = ['ND5-3_combined', 'ND4-1397R_combined', 'ND4-1333_combined', 'ND1_combined']
 
 THREADS = '24'
 
