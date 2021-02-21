@@ -14,7 +14,13 @@ import os
 # --------------------------------------------------------------->>>>>>>
 # vars
 # --------------------------------------------------------------->>>>>>>
-SAMPLES = ['DD-gfp-pd_combined', 'Vec-ab-pd-rep1_combined']
+SAMPLES = ['Liu-Untreated-rep1_combined',
+ 'Liu-Untreated-rep2_combined',
+ 'Liu-Untreated-rep3_combined',
+ 'OurATACSeq_1_combined',
+ 'OurATACSeq_2_combined',
+ 'OurATACSeq_4_combined',
+ 'OurATACSeq_5_combined']
 
 
 THREADS = '24'
