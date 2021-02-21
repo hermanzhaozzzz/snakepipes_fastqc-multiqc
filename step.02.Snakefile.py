@@ -14,7 +14,8 @@ import os
 # --------------------------------------------------------------->>>>>>>
 # vars
 # --------------------------------------------------------------->>>>>>>
-SAMPLES = ['ND5-3_combined', 'ND4-1397R_combined', 'ND4-1333_combined', 'ND1_combined']
+SAMPLES = ['DD-gfp-pd_combined', 'Vec-ab-pd-rep1_combined']
+
 
 THREADS = '24'
 
