@@ -14,13 +14,26 @@ import os
 # --------------------------------------------------------------->>>>>>>
 # vars
 # --------------------------------------------------------------->>>>>>>
-SAMPLES = ['Liu-Untreated-rep1_combined',
- 'Liu-Untreated-rep2_combined',
- 'Liu-Untreated-rep3_combined',
- 'OurATACSeq_1_combined',
- 'OurATACSeq_2_combined',
- 'OurATACSeq_4_combined',
- 'OurATACSeq_5_combined']
+SAMPLES = [
+    '1308A_combined',
+    '1310A_combined',
+    '6LdAC-1_combined',
+    '6LdAC-2_combined',
+    '6Lonly_combined',
+    '6RdAN-1_combined',
+    '6RdAN-2_combined',
+    '6Ronly_combined',
+    'IA-0-25_combined',
+    'IA-1-2_combined',
+    'IA-1-5_combined',
+    'N1-veri-2_combined',
+    'N4-1333-2_combined',
+    'N4-1397R-2_combined',
+    'N4-veri-2_combined',
+    'N5-3-veri-2_combined',
+    'dACN-1_combined',
+    'dACN-2_combined'
+]
 
 
 THREADS = '24'
