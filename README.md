@@ -31,11 +31,4 @@ snakemake -pr -j 24 -s Snakefile.py -n
 # run
 snakemake -pr -j 24 -s Snakefile.py
 ```
-
-
-
-## Update logs:
-- 2020-11-24: 
-    - update to a normal format and add log files
-    - auto set PATH for fastqc and multiqc(use os.popen(which app).read() to return a path for apps)
     
