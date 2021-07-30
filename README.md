@@ -18,6 +18,7 @@ conda create -n snakepipes_fastqc-multiqc fastqc multiqc
 ```
 git clone git@github.com:hermanzhaozzzz/snakepipes_fastqc-multiqc.git
 conda create -n snakepipes_fastqc-multiqc fastqc multiqc
+conda activate snakepipes_fastqc-multiqc
 ```
 2. fill the "SAMPLE" list in the Snakefile
 3. Ensure that dependent programs are installed and added into the PATH variable
