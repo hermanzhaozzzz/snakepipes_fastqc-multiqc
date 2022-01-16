@@ -10,21 +10,13 @@ import os
 # ------------------------------------------------------------------->>>>>>>>>>
 # SAMPLE INFO
 # ------------------------------------------------------------------->>>>>>>>>>
-SAMPLES = [
-    'ABE-HEK4-rep1_combined',
-    'ABE-HEK4-rep2_combined',
-    'ABE8e-HEK4-rep1_combined',
-    'ABE8e-HEK4-rep2_combined',
-    'ACBE-HEK4-rep1_combined',
-    'ACBE-HEK4-rep2_combined',
-    'CBE-HEK4-rep1_combined',
-    'CBE-HEK4-rep2_combined'
-]
+SAMPLES = ['Q5U-56-rep1', 'Q5U-56-rep2', 'Q5U-mock-rep1', 'Q5U-mock-rep2']
+
 
 # ------------------------------------------------------------------->>>>>>>>>>
 # RUN INFO
 # ------------------------------------------------------------------->>>>>>>>>>
-THREADS = '24'
+THREADS = '20'
 
 # ------------------------------------------------------------------->>>>>>>>>>
 # DATABASE INFO
