@@ -13,7 +13,7 @@ This snakemake pipeline aims to do quality control for single-end(SE) or paired-
 - 所有测序文件存放目录为`../fastq`
 - **只能全部**存放单端或者全部存放双端测序
 - 单端测序以`_SE.fastq.gz`结尾
-- 双端测序以`_R1.fastq.gz | _R1.fastq.gz`结尾
+- 双端测序以`_R1.fastq.gz | _R2.fastq.gz`结尾
 - Jupyterlab 运行step1 RUN -> Run All Cells 得到`sample.json`，检查样本完整性
 - Snakemake 运行step2 得到质控结果，并在 `../qc/multiqc/multiqc_report.html` 中查看汇总结果
 
