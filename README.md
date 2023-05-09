@@ -35,9 +35,9 @@ conda env create -f conda_env.yml
 # open notebook and run all cells
 runipy step.01.GetFileName.ipynb
 # 测试运行
-snakemake -pr -j 10 -s step.02.Snakefile.smk.py -n
+snakemake -pr -j 10 -s step.02.Snakefile.py -n
 # 实际运行
-snakemake -pr -j 10 -s step.02.Snakefile.smk.py
+snakemake -pr -j 10 -s step.02.Snakefile.py
 ```
 
 
