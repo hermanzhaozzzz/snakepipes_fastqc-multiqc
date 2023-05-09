@@ -34,9 +34,9 @@ conda env create -f conda_env.yml
 # or
 # open notebook and run all cells
 runipy step.01.GetFileName.ipynb
-# 测试运行
+# dry run for test
 snakemake -pr -j 10 -s step.02.Snakefile.py -n
-# 实际运行
+# run calculation
 snakemake -pr -j 10 -s step.02.Snakefile.py
 ```
 
