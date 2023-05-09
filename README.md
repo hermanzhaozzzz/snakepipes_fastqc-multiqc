@@ -1,30 +1,38 @@
-# 标准质控流程
-> author: 赵华男 | ZHAO Hua-nan
+# snakepipes_fastqc-multiqc
+## about author
+
+> author: [赵华男 | ZHAO Hua-nan](https://scholar.google.com/citations?user=ojSVoWQAAAAJ&hl=en)
 >
 > email: hermanzhaozzzz@gmail.com
 >
-> [知乎](https://www.zhihu.com/people/hymanzhaozzzz) | [博客](http://zhaohuanan.cc)
+> [Zhihu](https://www.zhihu.com/people/hymanzhaozzzz) | [BLOG](http://zhaohuanan.cc)
 
-## 说明
-本snakemake流程用于批量运行单端、双端测序FASTQ文件的质控(fastqc 和 multiqc) 
+## doc
+`snakepipes_fastqc-multiqc` is a standard quality control snakemake pipeline for NGS/HTS data
+- input file: FASTQ file by NGS sequencing, Single-end (SE) Paired-end (PE) are supported.
+- output file:
+    - fastqc report
+    - multiqc report
+- requirement
+    - raw FASTQ file must put in `../fastq` directory
+    - **only the same** sequencing type (SE or PE) can be assigned into the `sample.json` at once!
+    - SE sequencing data must named its suffix -> `_SE.fastq.gz`
+    - PE sequencing data must named its suffix -> `_R1.fastq.gz` and`_R2.fastq.gz`
+    - run Jupyter notebook to abtain the config for snakemake -> `sample.json`
+    - run Snakemake to abtain the QC results at directory -> `../qc`
+        - summary html for QC stat -> `../qc/multiqc/multiqc_report.html`
 
-This snakemake pipeline aims to do quality control for single-end(SE) or paired-end(PE) FASTQ file(fastqc and multiqc)
 
-- 所有测序文件存放目录为`../fastq`
-- **只能全部**存放单端或者全部存放双端测序
-- 单端测序以`_SE.fastq.gz`结尾
-- 双端测序以`_R1.fastq.gz | _R2.fastq.gz`结尾
-- Jupyterlab 运行step1 RUN -> Run All Cells 得到`sample.json`，检查样本完整性
-- Snakemake 运行step2 得到质控结果，并在 `../qc/multiqc/multiqc_report.html` 中查看汇总结果
-
-
-## 环境:
+## env:
 ```
-conda install snakemake fastqc multiqc runipy
+conda env create -f conda_env.yml
 ```
-## 运行
+## run
 ```shell
-# Jupyterlab运行step1生成json文件或者命令行运行笔记本
+# run Jupyter notebook to abtain the config
+# run this cmd
+# or
+# open notebook and run all cells
 runipy step.01.GetFileName.ipynb
 # 测试运行
 snakemake -pr -j 10 -s step.02.Snakefile.smk.py -n
@@ -33,9 +41,9 @@ snakemake -pr -j 10 -s step.02.Snakefile.smk.py
 ```
 
 
-## 文件树
+## project structure
 ```shell
-ChIP-seq|⇒ tree -L 2
+tree -L 2 .
 .
 ├── fastq
 │   ├── CTCF_ChIP-seq_CTCF-AID_auxin2days_rep1_SE.fastq.gz
@@ -47,26 +55,12 @@ ChIP-seq|⇒ tree -L 2
 │   ├── Input_for_CTCF_ChIP-seq_CTCF-AID_auxin2days_rep1_SE.fastq.gz
 │   ├── Input_for_CTCF_ChIP-seq_CTCF-AID_auxin2days_rep2_SE.fastq.gz
 │   ├── Spike-in-antibody-only_ChIP-seq_CTCF-AID_untreated_rep1_SE.fastq.gz
-│   ├── Spike-in-antibody-only_ChIP-seq_CTCF-AID_untreated_rep2_SE.fastq.gz
-│   ├── sra_info.txt
-│   ├── SRR5517476.sra
-│   ├── SRR5517477.sra
-│   ├── SRR5517478.sra
-│   ├── SRR5517479.sra
-│   ├── SRR5517480.sra
-│   ├── SRR5517481.sra
-│   ├── SRR5517482.sra
-│   ├── SRR5517483.sra
-│   ├── SRR5517484.sra
-│   └── SRR5517485.sra
+│   └── Spike-in-antibody-only_ChIP-seq_CTCF-AID_untreated_rep2_SE.fastq.gz
 └── snakepipes_fastqc-multiqc
-    ├── 1
     ├── README.md
     ├── samples.json
     ├── step.01.GetFileName.ipynb
     └── step.02.Snakefile.smk.py
-
-3 directories, 25 files
 ```
 
 
