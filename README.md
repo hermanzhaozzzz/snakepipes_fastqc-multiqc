@@ -25,7 +25,17 @@
 
 ## env:
 ```
+tree .
+.
+└── fastq
+
+
+git clone https://github.com/hermanzhaozzzz/snakepipes_fastqc-multiqc.git
+cd snakepipes_fastqc-multiqc
+
+
 conda env create -f conda_env.yml
+conda activate snakepipes_fastqc-multiqc
 ```
 ## run
 ```shell
